@@ -1,12 +1,18 @@
-FROM tomcat
+FROM tomcat:9 as build
+WORKDIR /usr/local/tomcat/webapps
+COPY /stsdevops/docker/images/code/sampleapp.war /usr/local/tomcat/webapps/webappkiran-0.0.1-SNAPSHOT.war
+########
+FROM scratch
+COPY --from=build /usr/local/tomcat/webapps/webappkiran-0.0.1-SNAPSHOT.war
+RUN chmod -R 755 /usr/local/tomcat/webapps/webappkiran-0.0.1-SNAPSHOT.war
 
-#RUN apt-get -y update
-# RUN apt-get -y install openjdk-11-jdk 
-# WORKDIR /opt/tomcat/webapps
 
-# RUN apt-get install -y tomcat9
 
-COPY stsdevops/docker/images/code/sampleapp.war  /var/lib/tomcat/webapps/
 
-EXPOSE 8080
-CMD /opt/tomcat/bin/catalina.sh run
+#FROM ubuntu as build
+#cmd sudo apt-get install -y tomcat9
+
+#WORKDIR /usr/local/tomcat/webapps
+
+#FROM ubuntu
+#COPY --from=build /usr/local/tomcat/webapps /target/*.war
