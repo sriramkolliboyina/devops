@@ -1,10 +1,10 @@
-FROM ubuntu
+FROM tomcat9
 
-RUN apt-get -y update
+#RUN apt-get -y update
 # RUN apt-get -y install openjdk-11-jdk 
 # WORKDIR /opt/tomcat/webapps
 
-RUN apt-get install -y tomcat9
+# RUN apt-get install -y tomcat9
 
 COPY stsdevops/docker/images/code/sampleapp.war  /var/lib/tomcat/webapps/
 
