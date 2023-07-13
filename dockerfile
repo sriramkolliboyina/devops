@@ -1,8 +1,8 @@
-FROM alpine
+FROM ubuntu
 
 RUN apt-get -y update
-RUN apt-get -y install openjdk-8-jdk wget
-WORKDIR /opt/tomcat/webapps
+RUN apt-get -y install openjdk-11-jdk 
+#WORKDIR /opt/tomcat/webapps
 
 RUN apt-get install -y tomcat9
 
