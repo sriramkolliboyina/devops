@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM alpine
 
 RUN apt-get -y update
 RUN apt-get -y install openjdk-8-jdk wget
