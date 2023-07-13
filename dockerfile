@@ -1,10 +1,10 @@
 FROM tomcat:9 as build
 WORKDIR /usr/local/tomcat/webapps
-COPY /stsdevops/docker/images/code/sampleapp.war /usr/local/tomcat/webapps/webappkiran-0.0.1-SNAPSHOT.war
+COPY /stsdevops/docker/images/code/sampleapp.war /usr/local/tomcat/webapps
 ########
 FROM scratch
-COPY --from=build /usr/local/tomcat/webapps/webappkiran-0.0.1-SNAPSHOT.war
-RUN chmod -R 755 /usr/local/tomcat/webapps/webappkiran-0.0.1-SNAPSHOT.war
+COPY --from=build /usr/local/tomcat/webapps/sampleapp.war
+RUN chmod -R 755 /usr/local/tomcat/webapps/sampleapp.war
 
 
 
