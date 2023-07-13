@@ -1,4 +1,4 @@
-FROM tomcat9
+FROM tomcat
 
 #RUN apt-get -y update
 # RUN apt-get -y install openjdk-11-jdk 
