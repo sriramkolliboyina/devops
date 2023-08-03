@@ -19,4 +19,4 @@ in any Jenkins Job -- configure a post build action
 
 Editable Email Notification
 provide recepient list & save the job & run the job
-	uday
+
